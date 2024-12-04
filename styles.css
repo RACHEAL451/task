@@ -1,0 +1,206 @@
+/* styles.css */
+
+/* Root Variables */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #ffffff;
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --btn-bg-color: #e9ecef;
+    --danger-color: #dc3545;
+    --transition: all 0.3s ease;
+}
+
+body.dark {
+    --primary-color: #17a2b8;
+    --secondary-color: #343a40;
+    --bg-color: #121212;
+    --text-color: #f8f9fa;
+    --btn-bg-color: #495057;
+    --danger-color: #d9534f;
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: var(--transition);
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+#toggle-theme-btn {
+    border: none;
+    background: var(--btn-bg-color);
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 150px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    flex: 1;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background-color: var(--btn-bg-color);
+    color: var(--primary-color);
+}
+
+/* Task List */
+ul {
+    list-style: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+li {
+    background-color: var(--btn-bg-color);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: var(--transition);
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+li .date-time {
+    font-size: 0.8rem;
+    color: gray;
+    margin-left: auto;
+    padding-left: 10px;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: var(--danger-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Clear All Button */
+.danger {
+    background-color: var(--danger-color);
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button, input {
+        width: 100%;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .delete-btn {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .controls {
+        gap: 5px;
+    }
+}
